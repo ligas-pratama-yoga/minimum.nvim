@@ -26,9 +26,14 @@ return {
         lint.try_lint()
       end,
     })
-
     vim.keymap.set("n", "<leader>cl", function()
       lint.try_lint()
     end, { desc = "Trigger linting for current file" })
+    vim.api.nvim_set_keymap(
+      "n",
+      "gD",
+      "<cmd>lua vim.diagnostic.setloclist()<CR>",
+      { noremap = true, silent = true }
+    )
   end,
 }

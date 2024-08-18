@@ -12,6 +12,8 @@ return {
           return vim.api.nvim_win_get_config(win).relative == ""
         end,
       },
+      "Trouble",
+      { ft = "qf", title = "QuickFix" },
     },
   },
 }

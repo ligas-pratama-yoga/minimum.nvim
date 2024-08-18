@@ -10,7 +10,7 @@ vim.cmd("set numberwidth=4")
 vim.cmd("set confirm")
 vim.cmd("set shell=powershell")
 vim.cmd("set shellcmdflag=-command")
-vim.cmd(" set shellquote=\"" )
+vim.cmd(' set shellquote="')
 vim.cmd("set shellxquote=")
 vim.wo.signcolumn = "yes"
 
@@ -39,9 +39,12 @@ keymap({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and Clear hl
 -- UI
 keymap("n", "<leader>ui", "<cmd>IBLToggle<cr>", { desc = "Toggle Indent Line" })
 keymap("n", "<leader>uh", "<cmd>TSToggle highlight<cr>", { desc = "Toggle Treesitter Highlight" })
+keymap("n", "<leader>uc", function()
+  require("nvim-highlight-colors").toggle()
+end, { desc = "Toggle highlight color" })
 
 -- Terminal
-keymap('t', 'jj', [[<C-\><C-n>]], {})
+keymap("t", "jj", [[<C-\><C-n>]], {})
 
 -- Change between window
 keymap("n", "<C-h>", "<C-w>h", { desc = "Go to Left Window", remap = true })
